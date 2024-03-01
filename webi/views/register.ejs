@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="16x16"> ‍
+    <link rel="stylesheet" href="../public/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4caf50;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 150px; /* Adjust top margin for nav bar */
+        }
+        .container h1 {
+            margin-top: 200px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container input, .container select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .container a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            .container input, .container select {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo">
+        </div>
+        <div>
+            <h1>UNIVERSAL GROWTH GROUP</h1>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="date" name="dateOfBirth" placeholder="Date of Birth" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <select name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="number" name="aadharNumber" placeholder="Aadhar Number" required>
+            <input type="text" name="panNumber" placeholder="PAN Number" required>
+            <input type="text" name="bankName" placeholder="Bank Name" required>
+            <input type="number" name="accountNumber" placeholder="Account Number" required>
+            <input type="text" name="ifscCode" placeholder="IFSC Code" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+</body>
+</html>

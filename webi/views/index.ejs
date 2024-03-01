@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="16x16">
+    <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4caf50;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 600px; /* Added max-width for responsiveness */
+            width: 90%; /* Added width for responsiveness */
+            text-align: center;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            text-align: center !important;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: justify;
+        }
+
+        .container {
+            text-align: left;
+        }
+
+        .mssg {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .container input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .container a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .container {
+                max-width: 90%; /* Adjusting max-width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <!-- You can replace the following with your own logo/image -->
+                    <img alt="Logo" src="/img/logo.png" height="30">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/about">About</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/">Registration</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Welcome <%= username %>!</h1>
+        <p>This is the home page.</p>
+    </div>
+</body>
+</html>

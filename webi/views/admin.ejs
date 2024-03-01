@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../public/logo.png" alt="Logo">
+        </div>
+        <ul>
+            <li><a href="/admin/users">User Management</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Welcome Admin!</h1>
+    </div>
+</body>
+</html> -->
+<!-- Admin_Panel.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+     
+    <link rel="stylesheet" href="../public/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4caf50;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            white-space: nowrap;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/admin/users">User Management</a></li>
+           
+            <li> <a href="/admin/user-details">View User Details</a></li>
+            
+            <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <!-- <ul>
+            <li><a href="/admin/users">User Management</a></li>
+           
+            <li> <a href="/admin/user-details">View User Details</a></li>
+            
+            <li><a href="/logout">Logout</a></li>
+        </ul> -->
+    </nav>
+    <div class="container">
+        <h1>Welcome Admin!</h1>
+        <!-- Link to User_details.ejs -->
+    </div>
+</body>
+</html>

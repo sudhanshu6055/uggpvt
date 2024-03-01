@@ -1,0 +1,415 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="../public/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../public/logo.png" alt="Logo">
+        </div>
+        <ul>
+            <li><a href="/admin">Back to Admin Panel</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>User Management</h1>
+        <div id="user-list">
+            <h2>Pending Registrations:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <% if (!user.approved) { %>
+                        <tr>
+                            <td><%= user.username %></td>
+                            <td>
+                                <form action="/admin/users/<%= user._id %>/approve" method="POST" style="display:inline;">
+                                    <button type="submit">Approve</button>
+                                </form>
+                                <form action="/admin/users/<%= user._id %>/deny" method="POST" style="display:inline;">
+                                    <button type="submit">Deny</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <div id="approved-users">
+            <h2>Approved Users:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>User ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <% if (user.approved) { %>
+                        <tr>
+                            <td><%= user.username %></td>
+                            <td><%= user._id %></td>
+                        </tr>
+                        <% } %>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="../public/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../public/logo.png" alt="Logo">
+        </div>
+        <ul>
+            <li><a href="/admin">Back to Admin Panel</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>User Management</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Aadhar Number</th>
+                    <th>PAN Number</th>
+                    <th>Bank Name</th>
+                    <th>Account Number</th>
+                    <th>IFSC Code</th>
+                    <th>Approved</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.username %></td>
+                        <td><%= user.fullName %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.dateOfBirth %></td>
+                        <td><%= user.address %></td>
+                        <td><%= user.gender %></td>
+                        <td><%= user.aadharNumber %></td>
+                        <td><%= user.panNumber %></td>
+                        <td><%= user.bankName %></td>
+                        <td><%= user.accountNumber %></td>
+                        <td><%= user.ifscCode %></td>
+                        <td><%= user.approved ? 'Yes' : 'No' %></td>
+                        <td>
+                            <form action="/admin/users/<%= user._id %>/approve" method="POST" style="display:inline;">
+                                <button type="submit">Approve</button>
+                            </form>
+                            <form action="/admin/users/<%= user._id %>/deny" method="POST" style="display:inline;">
+                                <button type="submit">Deny</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body> -->
+<!-- </html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="16x16"> ‍
+    <link rel="stylesheet" href="../public/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4caf50;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            white-space: nowrap;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo">
+        </div>
+        <div>
+            <h1>UNIVERSAL GROWTH GROUP</h1>
+        </div>
+        <ul>
+            <li><a href="/admin">Back to Admin Panel</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>User Management</h1>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Aadhar Number</th>
+                        <th>PAN Number</th>
+                        <th>Bank Name</th>
+                        <th>Account Number</th>
+                        <th>IFSC Code</th>
+                        <th>Approved</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.username %></td>
+                            <td><%= user.fullName %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.dateOfBirth %></td>
+                            <td><%= user.address %></td>
+                            <td><%= user.gender %></td>
+                            <td><%= user.aadharNumber %></td>
+                            <td><%= user.panNumber %></td>
+                            <td><%= user.bankName %></td>
+                            <td><%= user.accountNumber %></td>
+                            <td><%= user.ifscCode %></td>
+                            <td><%= user.approved ? 'Yes' : 'No' %></td>
+                            <td>
+                                <form action="/admin/users/<%= user._id %>/approve" method="POST" style="display:inline;">
+                                    <button type="submit">Approve</button>
+                                </form>
+                                <form action="/admin/users/<%= user._id %>/deny" method="POST" style="display:inline;">
+                                    <button type="submit">Deny</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
